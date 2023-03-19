@@ -7,6 +7,7 @@ const quizQuestions = [
         d: "Within the head tags of the HTML document",
         correct: "b",
     },
+    
     {
         question: "How do you link the JavaScript document into the HTML document?",
         a: "<script> </script>",
@@ -48,6 +49,7 @@ const quizQuestions = [
         correct: "d",
     },
 ];
+console.log(quizQuestions)
 const quiz = document.getElementById('quiz')
 const answers = document.querySelectorAll('.answer')
 const questions = document.getElementById('question')
@@ -58,17 +60,20 @@ const d_text = document.getElementById('d_text')
 const submitbutton = document.getElementById('submit')
 var questionNumber = 0
 var score = 0
-loadQuiz()
+// loadQuiz()
+
+var generateBtn = document.querySelector("#loadQuiz");
 function loadQuiz () {
     deselectAnswers()
-var currentQuizQuestion = quizQuestions[questionNumber]
-//stick the text from variablesabove into the textbox div
+    var currentQuizQuestion = quizQuestions[questionNumber]
+    //stick the text from variablesabove into the textbox div
     questions.innerText = currentQuizQuestion.question
     a_text.innerText = currentQuizQuestion.a
     b_text.innerText = currentQuizQuestion.b
     c_text.innerText = currentQuizQuestion.c
     d_text.innerText = currentQuizQuestion.d
 }
+generateBtn.addEventListener("click", loadQuiz);  
 //deselects the answersbefore next question "arrow function"
 function deselectAnswers() {
     answers.forEach(answerEl => answerEl.checked = false)
