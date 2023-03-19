@@ -30,8 +30,9 @@ margin: 20px 0;
 
 
 .btn{
-    background-color: red;
-    color: white;
+    
+    background-color: white;
+    color: black;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -54,6 +55,14 @@ margin: 20px 0;
     height: 50%;
     width: 50%;
 
+}
+
+.btn.correct{
+    background-color: green;
+}
+
+.btn.wrong{
+    background-color: red;
 }
 
 

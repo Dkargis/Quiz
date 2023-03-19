@@ -1,4 +1,5 @@
 var startButton = document.getElementById('start-btn')
+var nextButton = document.getElementById('next-btn')
 var questionContainerElement = document.getElementById('question-container')
 var questionElement = document.getElementById('question')
 var answerButtonsElement = document.getElementById('answer-buttons')
@@ -12,9 +13,18 @@ const question = [
                 {text: "Within the head tags of the HTML document", correct: false}
             ]
         },
-    ]
+        {
+                    question: "How do you link the JavaScript document into the HTML document?",
+                    answers: [
+                        {text: "<script> </script>", correct: true},
+                        {text: "<html> </html>", correct: false},
+                        {text: "<link href=>", correct: false},
+                        {text: "<a> </a>", correct: false}
+                    ]
+                },
+            ]
 
-var shuffleQuestions, currentQuestionIndex
+let shuffleQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
 
@@ -29,20 +39,65 @@ setNextQuestion()
 }
 
 function setNextQuestion(){
-    console.log(questionElement);
+    resetState()
 showQuestion(shuffleQuestion[currentQuestionIndex])
 }
 
 
 function showQuestion(question){
 questionElement.innerText = question.question
+question.answers.forEach(answer => {
+    const button = document.createElement('button')
+    button.innerText = answer.text
+    button.classList.add('btn')
+    if(answer.correct){
+        button.dataset.correct = answer.correct
+    }
+    button.addEventListener('click', selectAnswer)
+    answerButtonsElement.appendChild(button)
+});
 }
 
-function selectAnswer(){
+function resetState(){
+    nextButton.classList.add('hide')
+    while(answerButtonsElement.firstChild){
+        answerButtonsElement.removeChild(answerButtonsElement.firstChild)
 
 }
+}
+// function setNextQuestion(){
+//     selectAnswer.addEventListener('click', () => {
+//         currentQuestionIndex++
+//         setNextQuestion()
+//     })
 
-        
+// }
+
+
+
+function selectAnswer(e){
+const selectedButton = e.target
+const correct = selectedButton.dataset.correct
+setStatusClass(document.body, correct)
+
+
+Array.from(answerButtonsElement.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct)
+})
+}
+ function setStatusClass (element, correct){
+     clearStatusClass(element)
+     if(correct){
+         element.classList.add('correct')
+     } else {
+         element.classList.add('wrong')
+     }
+    }
+
+    function clearStatusClass(element){
+        element.classList.remove('correct')
+        element.classList.remove('wrong')
+    }
     //     {
     //         question: "How do you link the JavaScript document into the HTML document?",
     //         a: "<script> </script>",
