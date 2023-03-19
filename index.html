@@ -9,114 +9,22 @@
 </head>
 
 <body>
-    
-<header>This is your quiz
-    <h1>
-        Timer: <span id="timer">0</span>
-    </h1>
-</header>
-
-<div>
-    <div class="wrapper">
-        <header>
-            <h1>Quiz</h1>
-        </header>
-        <div class="card" id="loadQuiz">
-          <div class="card-header">
-           
-          </div>
-          <div class="card-body">
-          </div>
-        </div>
-      </div>
-      <div class="card-footer">
-        <button id="loadQuiz" class="btn">Start your Quiz</button>
-      </div>
-</div>
-<div id="quiz">
-    <div class="card">
-        <div class="card-header">
-            <h2 id="questions"></h2>
-        </div>
-        <div class="card-body">
-            <ul id="answers"></ul>
+<div class="container">
+    <div id="question-container" class="hide">
+        <div id="question">Question</div>
+        <div id="answer-buttons" class="btn-grid">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
         </div>
     </div>
-
-    <div id="a_text">
-        <div class="card-header">
-            <h2 id="a_text"></h2>
-
-        </div>
-
-        <div id="b_text">
-            <div class="card-header">
-                <h2 id="a_text"></h2>
-                
-            </div>
-
-            <div id="c_text">
-                <div class="card-header">
-                    <h2 id="a_text"></h2>
-        
-                </div>
-
-                <div id="d_text">
-                    <div class="card-header">
-                        <h2 id="a_text"></h2>
-            
-                    </div>
-
-        <div class="submitBtn" id="submit">
-             <button id="submit" class="btn">Submit</button>
-        </div>
-
-
-
-
-        </div>
+    <div class="controls">
+        <button id="start-btn" class="start-btn btn">Start</button>
+        <button id="next-btn" class="next-btn btn hide">Next</button>
     </div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <script src="script.js"></script>
 </html>
