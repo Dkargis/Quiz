@@ -37,6 +37,35 @@ const question = [
                         {text: "<a> </a>", correct: false}
                     ]
                 },
+        
+                {
+
+                    question: "What is the purpose of JavaScript?",
+                    answers: [
+                        {text: "To style the page.", correct: false},
+                        {text: "To add cool effects to elements.", correct: false},
+                        {text: "To make the website interactive.", correct: true},
+                        {text: "To add forms.", correct: false}
+                    ]
+                        },
+                        {
+                            question: "JavaScript utilizes the ______ method to access elements with a specific ID?",
+                            answers: [
+                                {text: "Crystal", correct: false},
+                                {text: "DOM", correct: true},
+                                {text: "JSON", correct: false},
+                                {text: "Console", correct: false}
+                            ]
+                        },
+                        {
+                            question: "How do we code a variable?",
+                            answers: [
+                                {text: "let()", correct: false},
+                                {text: ".const", correct: false},
+                                {text: "var", correct: true},
+                                {text: "function", correct: false}
+                            ]
+                        },
             ]
 
 let shuffleQuestions, currentQuestionIndex
@@ -64,6 +93,7 @@ showQuestion(shuffleQuestion[currentQuestionIndex])
 }
 
 
+
 function showQuestion(question){
 questionElement.innerText = question.question
 question.answers.forEach(answer => {
@@ -75,6 +105,9 @@ question.answers.forEach(answer => {
     }
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
+
+
+
 });
 }
 
@@ -89,7 +122,7 @@ function resetState(){
 
 
 // function setNextQuestion(){
-//     selectAnswer.addEventListener('click', () => {
+//     answerButtonsElement.addEventListener('click', () => {
 //         currentQuestionIndex++
 //         setNextQuestion()
 //     })
@@ -106,16 +139,18 @@ setStatusClass(document.body, correct)
 
 Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
+
 })
 }
  function setStatusClass (element, correct){
      clearStatusClass(element)
      if(correct){
-         element.classList.add('correct')
+         element.classList.add('correct', time += 2)
      } else {
-         element.classList.add('wrong')
+         element.classList.add('wrong', time -= 1)
      }
     }
+
 
     function clearStatusClass(element){
         element.classList.remove('correct')
