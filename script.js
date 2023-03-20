@@ -3,6 +3,21 @@ var nextButton = document.getElementById('next-btn')
 var questionContainerElement = document.getElementById('question-container')
 var questionElement = document.getElementById('question')
 var answerButtonsElement = document.getElementById('answer-buttons')
+var timer;
+var ele = document.getElementById('timer');
+const startingMinutes = 5;
+let time = startingMinutes * 60;
+const countdownEl = document.getElementById('timer');
+
+
+function startTimer(setInterval) {
+  
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    countdownEl.innerHTML = `${minutes}:${seconds}`;
+time--;
+}
+
 const question = [
         {
             question: "Where do you link your JavaScript document?",
@@ -27,8 +42,10 @@ const question = [
 let shuffleQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', startTimer,)
 
 function startGame(){
+setInterval(startTimer, 1000);
 console.log('Started')
 startButton.classList.add('hide')
 shuffleQuestion = question.sort(() => Math.random() - .5)
@@ -36,7 +53,10 @@ currentQuestionIndex = 0
 questionContainerElement.classList.remove('hide')
 setNextQuestion()
 
+
 }
+
+answerButtonsElement.addEventListener('click', setNextQuestion)
 
 function setNextQuestion(){
     resetState()
@@ -65,6 +85,9 @@ function resetState(){
 
 }
 }
+
+
+
 // function setNextQuestion(){
 //     selectAnswer.addEventListener('click', () => {
 //         currentQuestionIndex++

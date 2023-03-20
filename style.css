@@ -3,17 +3,24 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+header{
+background-color: aquamarine;
+}
+  
 body{
-display: flex;
-justify-content: center;
-align-items: center;
+/* display: flex; */
+/* justify-content: center;
+align-items: center; */
 height: 100vh;
 width: 100vw;
 background-color: blue;
 }
 
+
+
 .container{
     display: flex;
+    margin: 20%;
     justify-content: center;
     align-items: center;
     height: 50%;
@@ -22,6 +29,8 @@ background-color: blue;
 }
 
 .btn-grid{
+justify-content: center;
+align-items: center;
  display: grid;
  grid-template-columns: repeat(2, auto);
  gap: 10px;
@@ -30,13 +39,14 @@ margin: 20px 0;
 
 
 .btn{
-    
+    justify-content: center;
+    align-items: center;
     background-color: white;
     color: black;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    float: right;
+
 }
 
 .start-btn{
@@ -68,4 +78,13 @@ margin: 20px 0;
 
 .hide{
     display: none;
+}
+
+.answer-buttons{
+
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+    background-color: white;
 }
