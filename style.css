@@ -50,6 +50,7 @@ margin: 20px 0;
 }
 
 .start-btn{
+    display: flex;
     background-color: green;
     color: white;
     padding: 100px;
@@ -87,4 +88,10 @@ margin: 20px 0;
     height: 50%;
     width: 50%;
     background-color: white;
+}
+
+.enter-score{
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
