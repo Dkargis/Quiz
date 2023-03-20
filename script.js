@@ -141,7 +141,15 @@ Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
 
 })
+currentQuestionIndex++;
+  setTimeout(() => {
+    setNextQuestion();
+  }, 1000);
 }
+
+
+
+
  function setStatusClass (element, correct){
      clearStatusClass(element)
      if(correct){
